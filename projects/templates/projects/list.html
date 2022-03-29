@@ -1,14 +1,6 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
-</head>
-    <body>   
-        <main>
+{% block content %}
             <div>
                 <h1>My Projects</h1>
                 {% if project|length == 0 %}
@@ -30,6 +22,4 @@
                 </table>
                 {% endif %}
             </div>
-        </main>
-    </body>
-</html>
+{% endblock content %}
