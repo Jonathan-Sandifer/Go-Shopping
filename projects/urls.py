@@ -6,4 +6,5 @@ from projects.views import (
 
 urlpatterns = [
     path("", ProjectListView.as_view(), name="home"),
+    path("<int:pk>/", Task.as_view(), name="show_project"),
 ]
