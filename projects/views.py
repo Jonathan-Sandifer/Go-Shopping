@@ -32,6 +32,6 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         item = form.save(commit=False)
-        item.owner = self.request.user
+        item.assignee = self.request.user
         item.save()
-        return redirect("list_categories")
+        return redirect("show_project")

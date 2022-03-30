@@ -8,7 +8,7 @@ class Task(models.Model):
     name = models.CharField(max_length=200)
     start_date = models.DateTimeField()
     due_date = models.DateTimeField()
-    is_completed = models.BooleanField()
+    is_completed = models.BooleanField(null=False)
     project = models.ForeignKey(
         "projects.Project",
         related_name="tasks",
@@ -23,3 +23,6 @@ class Task(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
