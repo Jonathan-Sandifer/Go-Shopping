@@ -6,32 +6,32 @@
         <h1>{{project.name}} </h1>
         <p>{{project.description}}</p>
         <h2>Tasks</h2>
-    {% if task in project %}
-    <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Assignee</th>
-            <th>Start Date</th>
-            <th>Due Date</th>
-            <th>Is Completed</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for task in task_list %}
-            <tr>
-              <td>{{}}</td>
-              <td>{{}}</td>
-            </tr>
-          {% endfor %}
-        </tbody>
-    </table>
-    {% else %}
-        <p>This project has no tasks</p>
-    {% endif %}    
+        {% comment %} {% if project in tasks %} {% endcomment %}
+          <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Assignee</th>
+                  <th>Start Date</th>
+                  <th>Due Date</th>
+                  <th>Is Completed</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for task in project.tasks.all %}
+                  <tr>
+                    <td>{{project.task.name}}</td>
+                    <td>{{project.task.assignee}}</td>
+                    <td>{{project.task.start_date}}</td>
+                    <td>{{project.task.due_date}}</td>
+                    <td>{{project.task.is_completed}}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+          </table>
+        {% comment %} {% else %}
+          <p>This project has no tasks</p>
+        {% endif %}      {% endcomment %}
     </div>
 </main>    
-
-
-
 {% endblock content %}

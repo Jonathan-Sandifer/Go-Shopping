@@ -2,13 +2,16 @@
 
 {% block content %}
 <main>
-  <div>
-    <h2>Log In</h2>
+  <div class="narrow-form">
+    <h1>Create a new Project</h1>
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit">Log In</button>
+      <button>Create</button>
     </form>
   </div>
 </main>
 {% endblock content %}
+
+
+{% load static %}

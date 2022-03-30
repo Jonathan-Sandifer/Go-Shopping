@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,34 +10,36 @@
   <title>Tracker</title>
   <link rel="stylesheet" href="{% static 'css/app.css' %}">
 </head>
+
 <body>
   <header>
     <nav>
         <ul class="navigation">
+          {% if user.is_staff %}
+        <li>
+          <a href="{% url 'admin:index' %}">Admin</a>
+        </li>
+        {% endif %}
         {% if user.is_authenticated %}
         <li class="nav-item">
-            <a href="{% url 'logout.html' %}">Logout</a>
-          </li>
-        <li class="nav-item">
-          <a href="{% url 'home' %}">Projects</a>
+          <a href="{% url 'logout' %}">Logout</a>
         </li>
         <li class="nav-item">
-            <a href="{% url 'tasks' %}">Tasks</a>
+          <a href="{% url 'home' %}">Projects</a>
         </li>
         {% else %}
         <li class="nav-item">
             <a href="{% url 'signup' %}">Sign Up</a>
         </li>
         <li class="nav-item">
-            <a href="{% url 'login.html' %}">Login</a>
+            <a href="{% url 'login' %}">Login</a>
         </li>
       {% endif %}
       </ul>
     </nav>
   </header>
-  <main>
     {% block content %}
     {% endblock content %}
-  </main>
 </body>
+
 </html>
