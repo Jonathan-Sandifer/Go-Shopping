@@ -1,31 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<main>
-    <div>
-        <h1>My Projects</h1>
-        <li class="nav-item">
-            <a href="{% url 'create_project' %}">Create a new project</a>
-        </li>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Number of tasks</th>
-                </tr>
-            </thead>
-            {% for project in project_list %}
-                <tbody>
-                    <tr>
-                        <td><a href="{% url 'show_project' project.pk%}">{{project.name}}</td>
-                        <td>{{tasks.all|length}}</td>
-                    </tr>
-                </tbody>
-            {% endfor %}
-            {% if project|length == 0 %}
+    <main>
+        <div>
+            <h1>My Projects</h1>
+            <li class="nav-item">
+                <a href="{% url 'create_project' %}">Create a new project</a>
+            </li>
+            {%if project_list|length > 0 %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Number of tasks</th>
+                        </tr>
+                    </thead>
+                    {% for project in project_list %}
+                        <tbody>
+                            <tr>
+                                <td><a href="{% url 'show_project' project.pk%}">{{project.name}}</td>
+                                    <td>{{project.tasks.all|length}}</td>
+                                </tr>
+                            </tbody>
+                    {% endfor %}
+            {% else %}
                 <p>You are not assigned to any projects</p>
             {% endif %}
         </table>
     </div>
-</main>            
+    </main>
 {% endblock content %}

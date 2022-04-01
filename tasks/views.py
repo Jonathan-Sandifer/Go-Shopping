@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from tasks.models import Task
 from django.views.generic.list import ListView
+
 # Create your views here.
 
 
