@@ -13,7 +13,7 @@
         <li class="nav-item">
           <a href="{% url 'create_task' %}">Create a new task</a>
       </li>
-        {% comment %} {% if project in tasks %} {% endcomment %}
+        {% if tasks in project %}
           <table>
               <thead>
                 <tr>
@@ -25,20 +25,20 @@
                 </tr>
               </thead>
               <tbody>
-                {% for task in project.tasks.all %}
+                {% for task in task_list %}
                   <tr>
-                    <td>{{project.task.name}}</td>
-                    <td>{{project.task.assignee}}</td>
-                    <td>{{project.task.start_date}}</td>
-                    <td>{{project.task.due_date}}</td>
-                    <td>{{project.task.is_completed}}</td>
+                    <td>{{task.name}}</td>
+                    <td>{{task.assignee}}</td>
+                    <td>{{task.start_date}}</td>
+                    <td>{{task.due_date}}</td>
+                    <td>{{task.is_completed}}</td>
                   </tr>
                 {% endfor %}
               </tbody>
           </table>
-        {% comment %} {% else %}
+        {% else %}
           <p>This project has no tasks</p>
-        {% endif %}      {% endcomment %}
+        {% endif %}      
     </div>
 </main>    
 {% endblock content %}

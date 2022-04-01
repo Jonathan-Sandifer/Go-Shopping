@@ -8,12 +8,12 @@
             <a href="{% url 'create_project' %}">Create a new project</a>
         </li>
         <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Number of tasks</th>
-                    </tr>
-                </thead>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Number of tasks</th>
+                </tr>
+            </thead>
             {% for project in project_list %}
                 <tbody>
                     <tr>

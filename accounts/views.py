@@ -13,6 +13,7 @@ def signup(request):
         if form.is_valid:
             username = request.POST["username"]
             password = request.POST["password1"]
+            password = request.POST["password2"]
             user = User.objects.create_user(username, password)
             user.save()
             login(request, user)

@@ -3,35 +3,26 @@
 {% block content %}
 <main>
     <div>
-        <h1>My Projects</h1>
-        <li class="nav-item">
-            <a href="{% url 'create_project' %}">Create a new project</a>
-        </li>
+        <h1>My Tasks</h1>
         <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Start Date</th>
-                        <th>Due Date</th>
-                        <th>Is Completed</th>
-                    </tr>
-                </thead>
-            {% for project in project_list %}
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Start Date</th>
+                    <th>Due Date</th>
+                    <th>Is Completed</th>
+                </tr>
+            </thead>
                 <tbody>
-                    {% for task in project.tasks.all %}
+                    {% for task in task_list %}
                   <tr>
-                    <td>{{project.task.name}}</td>
-                    <td>{{project.task.assignee}}</td>
-                    <td>{{project.task.start_date}}</td>
-                    <td>{{project.task.due_date}}</td>
-                    <td>{{project.task.is_completed}}</td>
+                    <td>{{task.name}}</td>
+                    <td>{{task.start_date}}</td>
+                    <td>{{task.due_date}}</td>
+                    <td>{{task.is_completed}}</td>
                   </tr>
-                {% endfor %}
+                    {% endfor %}
                 </tbody>
-            {% endfor %}
-            {% if task|length == 0 %}
-                <p>You have no tasks</p>
-            {% endif %}
         </table>
     </div>
 </main>            
