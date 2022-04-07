@@ -33,6 +33,8 @@ ALLOWED_HOSTS = ["*", "localhost"]
 # Application definition
 
 INSTALLED_APPS = [
+    "searchbox.apps.SearchboxConfig",
+    "circle.apps.CircleConfig",
     "markdownify.apps.MarkdownifyConfig",
     "projects.apps.ProjectsConfig",
     "tasks.apps.TasksConfig",
